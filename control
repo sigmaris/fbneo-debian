@@ -1,0 +1,18 @@
+Source: libretro-fba
+Section: otherosfs
+Priority: extra
+Maintainer: Sérgio Benjamim <sergio_br2@yahoo.com.br>
+Build-Depends: debhelper (>= 9), zlib1g-dev
+Standards-Version: 3.9.5
+Homepage: http://www.barryharris.me.uk/fba.php
+Vcs-Git: git://github.com/libretro/fba-libretro.git
+Vcs-Browser: https://github.com/libretro/fba-libretro
+
+Package: libretro-fba
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Libretro wrapper for Final Burn Alpha
+ This wrapper makes Final Burn Alpha API compatible with libretro, thus allowing
+ its use with libretro frontends, such as RetroArch.
+ .
+ This package provides the CPS1, CPS2 and Neo Geo cores from Final Burn Alpha.

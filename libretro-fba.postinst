@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -e
+
+update-alternatives --install /usr/lib/libretro.so libretro /usr/lib/libretro/fba_cores_cps1_libretro.so 10
+update-alternatives --install /usr/lib/libretro.so libretro /usr/lib/libretro/fba_cores_cps2_libretro.so 10
+update-alternatives --install /usr/lib/libretro.so libretro /usr/lib/libretro/fba_cores_neo_libretro.so 10
+
+#DEBHELPER#
+
+exit 0
