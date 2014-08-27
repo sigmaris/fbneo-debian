@@ -8,11 +8,29 @@ Homepage: http://www.barryharris.me.uk/fba.php
 Vcs-Git: git://github.com/libretro/fba-libretro.git
 Vcs-Browser: https://github.com/libretro/fba-libretro
 
-Package: libretro-fba
+Package: libretro-fba-cps1
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: Libretro wrapper for Final Burn Alpha
+Description: Libretro wrapper for Final Burn Alpha CPS1 core
  This wrapper makes Final Burn Alpha API compatible with libretro, thus allowing
  its use with libretro frontends, such as RetroArch.
  .
- This package provides the CPS1, CPS2 and Neo Geo cores from Final Burn Alpha.
+ This package provides the CPS1 core from Final Burn Alpha.
+
+Package: libretro-fba-cps2
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Libretro wrapper for Final Burn Alpha CPS2 core
+ This wrapper makes Final Burn Alpha API compatible with libretro, thus allowing
+ its use with libretro frontends, such as RetroArch.
+ .
+ This package provides the CPS2 core from Final Burn Alpha.
+
+Package: libretro-fba-neogeo
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Libretro wrapper for Final Burn Alpha Neo Geo core
+ This wrapper makes Final Burn Alpha API compatible with libretro, thus allowing
+ its use with libretro frontends, such as RetroArch.
+ .
+ This package provides the Neo Geo core from Final Burn Alpha.
