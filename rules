@@ -23,9 +23,9 @@
 	dh $@ --parallel
 
 override_dh_auto_build:
-#	$(MAKE) -C svn-current/trunk/fbacores/cps2/ -f makefile.libretro
-#	$(MAKE) -C svn-current/trunk/fbacores/neogeo/ -f makefile.libretro
-#	$(MAKE) -C svn-current/trunk/fbacores/cps1/ -f makefile.libretro
+	$(MAKE) -C svn-current/trunk/fbacores/cps2/ -f makefile.libretro
+	$(MAKE) -C svn-current/trunk/fbacores/neogeo/ -f makefile.libretro
+	$(MAKE) -C svn-current/trunk/fbacores/cps1/ -f makefile.libretro
 
 override_dh_auto_install:
 	# cps1
@@ -39,6 +39,6 @@ override_dh_auto_install:
 	cp debian/fba_cores_neo_libretro.info debian/libretro-fba-neogeo/usr/share/libretro/info/
 
 override_dh_auto_clean:
-#	$(MAKE) -C svn-current/trunk/fbacores/cps2/ -f makefile.libretro clean
-#	$(MAKE) -C svn-current/trunk/fbacores/neogeo/ -f makefile.libretro clean
-#	$(MAKE) -C svn-current/trunk/fbacores/cps1/ -f makefile.libretro clean
+	$(MAKE) -C svn-current/trunk/fbacores/cps2/ -f makefile.libretro clean
+	$(MAKE) -C svn-current/trunk/fbacores/neogeo/ -f makefile.libretro clean
+	$(MAKE) -C svn-current/trunk/fbacores/cps1/ -f makefile.libretro clean
