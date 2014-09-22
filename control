@@ -8,6 +8,17 @@ Homepage: http://www.barryharris.me.uk/fba.php
 Vcs-Git: git://github.com/libretro/fba-libretro.git
 Vcs-Browser: https://github.com/libretro/fba-libretro
 
+Package: libretro-fba
+Architecture: any
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+         libretro-fba-cps1,
+         libretro-fba-cps2,
+         libretro-fba-neogeo
+Description: Transitional package for Final Burn Alpha
+ This is a transitional dummy package for Final Burn Alpha to whom comes from
+ hunterks PPA. It can safely be removed.
+
 Package: libretro-fba-cps1
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}

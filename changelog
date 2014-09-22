@@ -1,3 +1,9 @@
+libretro-fba (0.2.97.30-0ubuntu5) UNRELEASED; urgency=low
+
+  * Transitional package for hunterk PPA.
+
+ -- Sérgio Benjamim <sergio_br2@yahoo.com.br>  Sun, 21 Sep 2014 23:21:00 -0300
+
 libretro-fba (0.2.97.30-0ubuntu4) UNRELEASED; urgency=low
 
   * Package for each core.
