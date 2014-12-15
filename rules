@@ -30,13 +30,10 @@ override_dh_auto_build:
 override_dh_auto_install:
 	# cps1
 	cp svn-current/trunk/fbacores/cps1/*.so debian/libretro-fba-cps1/usr/lib/libretro/
-	cp debian/fba_cores_cps1_libretro.info debian/libretro-fba-cps1/usr/share/libretro/info/
 	# cps2
 	cp svn-current/trunk/fbacores/cps2/*.so debian/libretro-fba-cps2/usr/lib/libretro/
-	cp debian/fba_cores_cps2_libretro.info debian/libretro-fba-cps2/usr/share/libretro/info/
 	# neogeo
 	cp svn-current/trunk/fbacores/neogeo/*.so debian/libretro-fba-neogeo/usr/lib/libretro/
-	cp debian/fba_cores_neo_libretro.info debian/libretro-fba-neogeo/usr/share/libretro/info/
 
 override_dh_auto_clean:
 	$(MAKE) -C svn-current/trunk/fbacores/cps2/ -f makefile.libretro clean

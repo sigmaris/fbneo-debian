@@ -21,7 +21,7 @@ Description: Transitional package for Final Burn Alpha
 
 Package: libretro-fba-cps1
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, libretro-core-info
 Description: Libretro wrapper for Final Burn Alpha CPS1 core
  This wrapper makes Final Burn Alpha API compatible with libretro, thus allowing
  its use with libretro frontends, such as RetroArch.
@@ -30,7 +30,7 @@ Description: Libretro wrapper for Final Burn Alpha CPS1 core
 
 Package: libretro-fba-cps2
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, libretro-core-info
 Description: Libretro wrapper for Final Burn Alpha CPS2 core
  This wrapper makes Final Burn Alpha API compatible with libretro, thus allowing
  its use with libretro frontends, such as RetroArch.
@@ -39,7 +39,7 @@ Description: Libretro wrapper for Final Burn Alpha CPS2 core
 
 Package: libretro-fba-neogeo
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, libretro-core-info
 Description: Libretro wrapper for Final Burn Alpha Neo Geo core
  This wrapper makes Final Burn Alpha API compatible with libretro, thus allowing
  its use with libretro frontends, such as RetroArch.
