@@ -1,3 +1,10 @@
+libretro-fba (0.2.97.35-0ubuntu1) UNRELEASED; urgency=low
+
+  * New port, it has CPS-1, CPS-2 and Neo Geo packages yet based in the 
+  old port.
+
+ -- Sérgio Benjamim <sergio_br2@yahoo.com.br>  Sun, 08 Mar 2015 17:16:00 -0300
+
 libretro-fba (0.2.97.30-0ubuntu5) UNRELEASED; urgency=low
 
   * Transitional package for hunterk PPA.
