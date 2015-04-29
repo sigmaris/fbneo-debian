@@ -19,14 +19,25 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
+# See issue #2 in github (libretro/libretro-fba)
+CFLAGS=-Wno-error
+CXXFLAGS=-Wno-error
+
+ARCH=$(shell dpkg-architecture -qDEB_HOST_ARCH)
+
+ifeq ($(ARCH),armhf)
+	# performance profile is for CPS-3
+	ARM=platform="armv hardfloat" profile=performance
+endif
+
 %:
 	dh $@ --parallel
 
 override_dh_auto_build:
-	$(MAKE) -f makefile.libretro
-	$(MAKE) -C fba-libretro_old/svn-current/trunk/fbacores/cps2/ -f makefile.libretro
-	$(MAKE) -C fba-libretro_old/svn-current/trunk/fbacores/neogeo/ -f makefile.libretro
-	$(MAKE) -C fba-libretro_old/svn-current/trunk/fbacores/cps1/ -f makefile.libretro
+	$(MAKE) -f makefile.libretro $(ARM)
+	$(MAKE) -C fba-libretro_old/svn-current/trunk/fbacores/cps2/ -f makefile.libretro $(ARM)
+	$(MAKE) -C fba-libretro_old/svn-current/trunk/fbacores/neogeo/ -f makefile.libretro $(ARM)
+	$(MAKE) -C fba-libretro_old/svn-current/trunk/fbacores/cps1/ -f makefile.libretro $(ARM)
 
 override_dh_auto_install:
 	# fba new port
