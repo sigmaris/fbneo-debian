@@ -53,13 +53,13 @@ override_dh_auto_configure:
 		debian/libretro-fba-neogeo.links.in > debian/libretro-fba-neogeo.links
 
 override_dh_auto_build:
-	$(MAKE) -f makefile.libretro $(ARM)
-	$(MAKE) -C fba_cores_cps2/ -f makefile.libretro $(ARM)
-	$(MAKE) -C fba-libretro_old/svn-old/trunk/fbacores/neogeo/ -f makefile.libretro $(ARM)
-	$(MAKE) -C fba_cores_cps1/ -f makefile.libretro $(ARM)
+	dh_auto_build -- -f makefile.libretro $(ARM)
+	dh_auto_build -- -C fba_cores_cps1/ -f makefile.libretro
+	dh_auto_build -- -C fba_cores_cps2/ -f makefile.libretro
+	dh_auto_build -- -C fba-libretro_old/svn-old/trunk/fbacores/neogeo/ -f makefile.libretro
 
 override_dh_auto_clean:
-	$(MAKE) -f makefile.libretro clean
-	$(MAKE) -C fba_cores_cps2/ -f makefile.libretro clean
-	$(MAKE) -C fba-libretro_old/svn-old/trunk/fbacores/neogeo/ -f makefile.libretro clean
-	$(MAKE) -C fba_cores_cps1/ -f makefile.libretro clean
+	dh_auto_clean -- -f makefile.libretro clean
+	dh_auto_clean -- -C fba_cores_cps1/ -f makefile.libretro clean
+	dh_auto_clean -- -C fba_cores_cps2/ -f makefile.libretro clean
+	dh_auto_clean -- -C fba-libretro_old/svn-old/trunk/fbacores/neogeo/ -f makefile.libretro clean
