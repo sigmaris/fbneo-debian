@@ -1,0 +1,8 @@
+debian/libretro-fba.install
+debian/libretro-fba.links
+debian/libretro-fba-cps1.install
+debian/libretro-fba-cps1.links
+debian/libretro-fba-cps2.install
+debian/libretro-fba-cps2.links
+debian/libretro-fba-neogeo.install
+debian/libretro-fba-neogeo.links

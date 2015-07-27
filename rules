@@ -16,13 +16,11 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# Uncomment this to turn on verbose mode.
-#export DH_VERBOSE=1
-
 # See issue #2 in github (libretro/libretro-fba)
-CFLAGS=-Wno-error
-CXXFLAGS=-Wno-error
+export CFLAGS=-Wno-error -s -O3 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security
+export CXXFLAGS=$(CFLAGS)
 
+DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 ARCH=$(shell dpkg-architecture -qDEB_HOST_ARCH)
 
 ifeq ($(ARCH),armhf)
@@ -33,24 +31,35 @@ endif
 %:
 	dh $@ --parallel
 
+override_dh_auto_configure:
+	sed 's/@DEB_HOST_MULTIARCH@/$(DEB_HOST_MULTIARCH)/g' \
+		debian/libretro-fba.install.in > debian/libretro-fba.install
+	sed 's/@DEB_HOST_MULTIARCH@/$(DEB_HOST_MULTIARCH)/g' \
+		debian/libretro-fba.links.in > debian/libretro-fba.links
+
+	sed 's/@DEB_HOST_MULTIARCH@/$(DEB_HOST_MULTIARCH)/g' \
+		debian/libretro-fba-cps1.install.in > debian/libretro-fba-cps1.install
+	sed 's/@DEB_HOST_MULTIARCH@/$(DEB_HOST_MULTIARCH)/g' \
+		debian/libretro-fba-cps1.links.in > debian/libretro-fba-cps1.links
+
+	sed 's/@DEB_HOST_MULTIARCH@/$(DEB_HOST_MULTIARCH)/g' \
+		debian/libretro-fba-cps2.install.in > debian/libretro-fba-cps2.install
+	sed 's/@DEB_HOST_MULTIARCH@/$(DEB_HOST_MULTIARCH)/g' \
+		debian/libretro-fba-cps2.links.in > debian/libretro-fba-cps2.links
+
+	sed 's/@DEB_HOST_MULTIARCH@/$(DEB_HOST_MULTIARCH)/g' \
+		debian/libretro-fba-neogeo.install.in > debian/libretro-fba-neogeo.install
+	sed 's/@DEB_HOST_MULTIARCH@/$(DEB_HOST_MULTIARCH)/g' \
+		debian/libretro-fba-neogeo.links.in > debian/libretro-fba-neogeo.links
+
 override_dh_auto_build:
 	$(MAKE) -f makefile.libretro $(ARM)
-	$(MAKE) -C fba-libretro_old/svn-current/trunk/fbacores/cps2/ -f makefile.libretro $(ARM)
-	$(MAKE) -C fba-libretro_old/svn-current/trunk/fbacores/neogeo/ -f makefile.libretro $(ARM)
-	$(MAKE) -C fba-libretro_old/svn-current/trunk/fbacores/cps1/ -f makefile.libretro $(ARM)
-
-override_dh_auto_install:
-	# fba new port
-	cp *.so debian/libretro-fba/usr/lib/libretro/
-	# cps1
-	cp fba-libretro_old/svn-current/trunk/fbacores/cps1/*.so debian/libretro-fba-cps1/usr/lib/libretro/
-	# cps2
-	cp fba-libretro_old/svn-current/trunk/fbacores/cps2/*.so debian/libretro-fba-cps2/usr/lib/libretro/
-	# neogeo
-	cp fba-libretro_old/svn-current/trunk/fbacores/neogeo/*.so debian/libretro-fba-neogeo/usr/lib/libretro/
+	$(MAKE) -C fba_cores_cps2/ -f makefile.libretro $(ARM)
+	$(MAKE) -C fba-libretro_old/svn-old/trunk/fbacores/neogeo/ -f makefile.libretro $(ARM)
+	$(MAKE) -C fba_cores_cps1/ -f makefile.libretro $(ARM)
 
 override_dh_auto_clean:
 	$(MAKE) -f makefile.libretro clean
-	$(MAKE) -C fba-libretro_old/svn-current/trunk/fbacores/cps2/ -f makefile.libretro clean
-	$(MAKE) -C fba-libretro_old/svn-current/trunk/fbacores/neogeo/ -f makefile.libretro clean
-	$(MAKE) -C fba-libretro_old/svn-current/trunk/fbacores/cps1/ -f makefile.libretro clean
+	$(MAKE) -C fba_cores_cps2/ -f makefile.libretro clean
+	$(MAKE) -C fba-libretro_old/svn-old/trunk/fbacores/neogeo/ -f makefile.libretro clean
+	$(MAKE) -C fba_cores_cps1/ -f makefile.libretro clean
