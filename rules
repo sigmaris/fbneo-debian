@@ -17,7 +17,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 # See issue #2 in github (libretro/libretro-fba)
-export CFLAGS=-Wno-error -s -O3 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security
+export CFLAGS=-Wno-error -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security
 export CXXFLAGS=$(CFLAGS)
 
 DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
@@ -56,10 +56,10 @@ override_dh_auto_build:
 	dh_auto_build -- -f makefile.libretro $(ARM)
 	dh_auto_build -- -C fba_cores_cps1/ -f makefile.libretro
 	dh_auto_build -- -C fba_cores_cps2/ -f makefile.libretro
-	dh_auto_build -- -C fba-libretro_old/svn-old/trunk/fbacores/neogeo/ -f makefile.libretro
+	dh_auto_build -- -C fba_cores_neo/
 
 override_dh_auto_clean:
 	dh_auto_clean -- -f makefile.libretro clean
 	dh_auto_clean -- -C fba_cores_cps1/ -f makefile.libretro clean
 	dh_auto_clean -- -C fba_cores_cps2/ -f makefile.libretro clean
-	dh_auto_clean -- -C fba-libretro_old/svn-old/trunk/fbacores/neogeo/ -f makefile.libretro clean
+	dh_auto_clean -- -C fba_cores_neo/
