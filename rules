@@ -17,10 +17,11 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 # See issue #2 in github (libretro/libretro-fba)
-export CFLAGS=-Wno-error -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security
-export CXXFLAGS=$(CFLAGS)
+export DEB_CXXFLAGS_MAINT_STRIP=-O2
+export DEB_CFLAGS_MAINT_STRIP=-O2
+export DEB_CXXFLAGS_MAINT_APPEND=-Wno-error
+export DEB_CFLAGS_MAINT_APPEND=-Wno-error
 
-DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 ARCH=$(shell dpkg-architecture -qDEB_HOST_ARCH)
 
 ifeq ($(ARCH),armhf)
@@ -30,27 +31,6 @@ endif
 
 %:
 	dh $@ --parallel
-
-override_dh_auto_configure:
-	sed 's/@DEB_HOST_MULTIARCH@/$(DEB_HOST_MULTIARCH)/g' \
-		debian/libretro-fba.install.in > debian/libretro-fba.install
-	sed 's/@DEB_HOST_MULTIARCH@/$(DEB_HOST_MULTIARCH)/g' \
-		debian/libretro-fba.links.in > debian/libretro-fba.links
-
-	sed 's/@DEB_HOST_MULTIARCH@/$(DEB_HOST_MULTIARCH)/g' \
-		debian/libretro-fba-cps1.install.in > debian/libretro-fba-cps1.install
-	sed 's/@DEB_HOST_MULTIARCH@/$(DEB_HOST_MULTIARCH)/g' \
-		debian/libretro-fba-cps1.links.in > debian/libretro-fba-cps1.links
-
-	sed 's/@DEB_HOST_MULTIARCH@/$(DEB_HOST_MULTIARCH)/g' \
-		debian/libretro-fba-cps2.install.in > debian/libretro-fba-cps2.install
-	sed 's/@DEB_HOST_MULTIARCH@/$(DEB_HOST_MULTIARCH)/g' \
-		debian/libretro-fba-cps2.links.in > debian/libretro-fba-cps2.links
-
-	sed 's/@DEB_HOST_MULTIARCH@/$(DEB_HOST_MULTIARCH)/g' \
-		debian/libretro-fba-neogeo.install.in > debian/libretro-fba-neogeo.install
-	sed 's/@DEB_HOST_MULTIARCH@/$(DEB_HOST_MULTIARCH)/g' \
-		debian/libretro-fba-neogeo.links.in > debian/libretro-fba-neogeo.links
 
 override_dh_auto_build:
 	dh_auto_build -- -f makefile.libretro $(ARM)

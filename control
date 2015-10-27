@@ -1,17 +1,16 @@
 Source: libretro-fba
-Section: otherosfs
-Priority: extra
-Maintainer: Sérgio Benjamim <sergio_br2@yahoo.com.br>
+Section: games
+Priority: optional
+Maintainer: Debian Games Team <pkg-games-devel@lists.alioth.debian.org>
+Uploaders: Sérgio Benjamim <sergio_br2@yahoo.com.br>
 Build-Depends: debhelper (>= 9), zlib1g-dev
-Standards-Version: 3.9.5
+Standards-Version: 3.9.6
 Homepage: http://www.barryharris.me.uk/fba.php
-Vcs-Git: git://github.com/libretro/libretro-fba.git
-Vcs-Browser: https://github.com/libretro/libretro-fba
 
 Package: libretro-fba
 Architecture: any
 Multi-Arch: same
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: retroarch | libretro-frontend, ${misc:Depends}, ${shlibs:Depends}
 Description: Libretro wrapper for Final Burn Alpha
  This wrapper makes Final Burn Alpha API compatible with libretro, thus allowing
  its use with libretro frontends, such as RetroArch.
@@ -42,7 +41,7 @@ Description: Libretro wrapper for Final Burn Alpha
 Package: libretro-fba-cps1
 Architecture: any
 Multi-Arch: same
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: retroarch | libretro-frontend, ${misc:Depends}, ${shlibs:Depends}
 Description: Libretro wrapper for Final Burn Alpha CPS-1 core
  This wrapper makes Final Burn Alpha API compatible with libretro, thus allowing
  its use with libretro frontends, such as RetroArch.
@@ -52,7 +51,7 @@ Description: Libretro wrapper for Final Burn Alpha CPS-1 core
 Package: libretro-fba-cps2
 Architecture: any
 Multi-Arch: same
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: retroarch | libretro-frontend, ${misc:Depends}, ${shlibs:Depends}
 Description: Libretro wrapper for Final Burn Alpha CPS-2 core
  This wrapper makes Final Burn Alpha API compatible with libretro, thus allowing
  its use with libretro frontends, such as RetroArch.
@@ -62,7 +61,7 @@ Description: Libretro wrapper for Final Burn Alpha CPS-2 core
 Package: libretro-fba-neogeo
 Architecture: any
 Multi-Arch: same
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: retroarch | libretro-frontend, ${misc:Depends}, ${shlibs:Depends}
 Description: Libretro wrapper for Final Burn Alpha Neo Geo core
  This wrapper makes Final Burn Alpha API compatible with libretro, thus allowing
  its use with libretro frontends, such as RetroArch.
