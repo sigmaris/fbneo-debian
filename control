@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Debian Games Team <pkg-games-devel@lists.alioth.debian.org>
 Uploaders: Sérgio Benjamim <sergio_br2@yahoo.com.br>
 Build-Depends: debhelper (>= 9), zlib1g-dev
-Standards-Version: 3.9.6
+Standards-Version: 3.9.8
 Homepage: http://www.barryharris.me.uk/fba.php
 
 Package: libretro-fba
@@ -37,33 +37,3 @@ Description: Libretro wrapper for Final Burn Alpha
   * Toaplan 2
   * Taito F2, X, Z and others
   * Miscellaneous drivers for lots of other hardware
-
-Package: libretro-fba-cps1
-Architecture: any
-Multi-Arch: same
-Depends: retroarch | libretro-frontend, ${misc:Depends}, ${shlibs:Depends}
-Description: Libretro wrapper for Final Burn Alpha CPS-1 core
- This wrapper makes Final Burn Alpha API compatible with libretro, thus allowing
- its use with libretro frontends, such as RetroArch.
- .
- This package provides the CPS-1 core from Final Burn Alpha.
-
-Package: libretro-fba-cps2
-Architecture: any
-Multi-Arch: same
-Depends: retroarch | libretro-frontend, ${misc:Depends}, ${shlibs:Depends}
-Description: Libretro wrapper for Final Burn Alpha CPS-2 core
- This wrapper makes Final Burn Alpha API compatible with libretro, thus allowing
- its use with libretro frontends, such as RetroArch.
- .
- This package provides the CPS-2 core from Final Burn Alpha.
-
-Package: libretro-fba-neogeo
-Architecture: any
-Multi-Arch: same
-Depends: retroarch | libretro-frontend, ${misc:Depends}, ${shlibs:Depends}
-Description: Libretro wrapper for Final Burn Alpha Neo Geo core
- This wrapper makes Final Burn Alpha API compatible with libretro, thus allowing
- its use with libretro frontends, such as RetroArch.
- .
- This package provides the Neo Geo core from Final Burn Alpha.

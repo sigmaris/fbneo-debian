@@ -1,2 +1,0 @@
-#!/bin/sh
-echo "usr/lib/$(dpkg-architecture -qDEB_HOST_MULTIARCH)/libretro/fbalpha2012_neogeo_libretro.so usr/lib/libretro/fbalpha2012_neogeo_libretro.so"
