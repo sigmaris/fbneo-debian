@@ -1,4 +1,4 @@
-Source: libretro-fba
+Source: libretro-fbalpha
 Section: games
 Priority: optional
 Maintainer: Debian Games Team <pkg-games-devel@lists.alioth.debian.org>
@@ -7,13 +7,15 @@ Build-Depends: debhelper (>= 9), zlib1g-dev
 Standards-Version: 3.9.8
 Homepage: http://www.barryharris.me.uk/fba.php
 
-Package: libretro-fba
+Package: libretro-fbalpha
 Architecture: any
 Multi-Arch: same
 Depends: retroarch | libretro-frontend, ${misc:Depends}, ${shlibs:Depends}
-Description: Libretro wrapper for Final Burn Alpha
- This wrapper makes Final Burn Alpha API compatible with libretro, thus allowing
- its use with libretro frontends, such as RetroArch.
+Replaces: libretro-fba (<< 0.2.97.39-r201701270102-c4c9fb5-19~)
+Breaks: libretro-fba (<< 0.2.97.39-r201701270102-c4c9fb5-19~)
+Description: Libretro wrapper for FB Alpha
+ This wrapper makes FB Alpha API compatible with libretro, thus allowing its use
+ with libretro frontends, such as RetroArch.
  .
  FB Alpha is an arcade emulator supporting the following platforms:
  .
