@@ -11,8 +11,8 @@ Package: libretro-fbalpha
 Architecture: any
 Multi-Arch: same
 Depends: retroarch | libretro-frontend, ${misc:Depends}, ${shlibs:Depends}
-Replaces: libretro-fba (<< 0.2.97.39-r201701270102-c4c9fb5-19~)
-Breaks: libretro-fba (<< 0.2.97.39-r201701270102-c4c9fb5-19~)
+Replaces: libretro-fba (<< 0.2.97.39-r201701270103-c4c9fb5-20~)
+Breaks: libretro-fba (<< 0.2.97.39-r201701270103-c4c9fb5-20~)
 Description: Libretro wrapper for FB Alpha
  This wrapper makes FB Alpha API compatible with libretro, thus allowing its use
  with libretro frontends, such as RetroArch.
