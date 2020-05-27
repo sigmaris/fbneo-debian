@@ -19,7 +19,7 @@ GIT_HASH := $(shell dpkg-parsechangelog | sed -rne 's,^Version: (.*),\1, p' | se
 	dh $@ --parallel
 
 override_dh_auto_build:
-	dh_auto_build -- -f makefile.libretro $(ARM) GIT_VERSION="'$(GIT_HASH)'"
+	dh_auto_build -- -C src/burner/libretro $(ARM) GIT_VERSION="'$(GIT_HASH)'"
 
 override_dh_auto_clean:
-	dh_auto_clean -- -f makefile.libretro clean
+	dh_auto_clean -- -C src/burner/libretro clean

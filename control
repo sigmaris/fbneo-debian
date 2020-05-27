@@ -1,23 +1,22 @@
-Source: libretro-fbalpha
+Source: libretro-fbneo
 Section: games
 Priority: optional
-Maintainer: Debian Games Team <pkg-games-devel@lists.alioth.debian.org>
-Uploaders: Sérgio Benjamim <sergio_br2@yahoo.com.br>
+Maintainer: Hugh Cole-Baker <sigmaris@gmail.com>
 Build-Depends: debhelper (>= 9), zlib1g-dev
 Standards-Version: 3.9.8
-Homepage: http://www.barryharris.me.uk/fba.php
+Homepage: https://github.com/libretro/FBNeo
 
-Package: libretro-fbalpha
+Package: libretro-fbneo
 Architecture: any
 Multi-Arch: same
 Depends: retroarch | libretro-frontend, ${misc:Depends}, ${shlibs:Depends}
-Replaces: libretro-fba (<< 0.2.97.39-r201701270103-c4c9fb5-20~)
-Breaks: libretro-fba (<< 0.2.97.39-r201701270103-c4c9fb5-20~)
-Description: Libretro wrapper for FB Alpha
- This wrapper makes FB Alpha API compatible with libretro, thus allowing its use
+Replaces: libretro-fbalpha (<< 0.2.97.44)
+Breaks: libretro-fbalpha (<< 0.2.97.44)
+Description: Libretro wrapper for FB Neo
+ This wrapper makes FB Neo API compatible with libretro, thus allowing its use
  with libretro frontends, such as RetroArch.
  .
- FB Alpha is an arcade emulator supporting the following platforms:
+ FB Neo is an arcade emulator supporting the following platforms:
  .
   * Capcom CPS-1
   * Capcom CPS-2
